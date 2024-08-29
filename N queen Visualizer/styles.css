@@ -1,0 +1,128 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --primary-color: #007bff;
+    --board-color-light: #f7f7f7;
+    --board-color-dark: #333;
+    --queen-color: #ff6347;
+    --border-color: #007bff;
+}
+
+.dark-mode {
+    --background-color: #333;
+    --text-color: #f0f0f0;
+    --board-color-light: #555;
+    --board-color-dark: #222;
+    --queen-color: #ff6347;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.controls input {
+    font-size: 1rem;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.controls button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+#board-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 2px;
+    max-width: 80vmin;
+    max-height: 80vmin;
+    border: 5px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.board-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background-color: var(--board-color-light);
+    position: relative;
+}
+
+.board-cell.dark {
+    background-color: var(--board-color-dark);
+}
+
+.queen {
+    color: var(--queen-color);
+    transform: scale(0);
+    transition: transform 0.3s;
+}
+
+.queen.active {
+    transform: scale(1);
+}
+
+#theme-toggle {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+#theme-toggle:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .controls {
+        flex-direction: column;
+    }
+    .controls input,
+    .controls button {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+}
